@@ -41,6 +41,10 @@ const createIntern = async function(req, res)
         
             return res.status(400).send({ status: false, message: "collegeName is Required." });
         
+        if(req.body.isDeleted!=undefined)
+
+            return res.status(400).send({status : false, message : "Invalid field (isDeleted) in request body."});
+        
         let college = await collegeModel.findOne({ name: requestBody.collegeName },{ _id: 1 });
         if (college == null) 
         
