@@ -10,21 +10,19 @@ const internSchema = new mongoose.Schema({
         lowerCase: true,
         type: String,
         required: true,
-        unique: true,
-
+        unique: true
     },
     mobile: {
         type: String,
         required: true,
-        unique: true,
+        unique: true
     },
 
     collegeId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'colleges',
-        required: true,
+        required: true
     },
-
     isDeleted: {
         type: Boolean,
         default: false
