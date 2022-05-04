@@ -4,7 +4,8 @@
   "description": "Project 2 Open To Intern (Group 11)",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon src/index.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js"
   },
   "repository": {
     "type": "git",
