@@ -1,4 +1,4 @@
-# Project2-OpenToIntern
+# Project2-OpenToIntern Group 11
 
 Team Members - Abi Mangalan and Bolendra Moran.
 
