@@ -45,7 +45,7 @@ const createIntern = async function(req, res)
 
             return res.status(400).send({status : false, message : "Invalid field (isDeleted) in request body."});
         
-        let college = await collegeModel.findOne({ name: requestBody.collegeName },{ _id: 1 });
+        let college = await collegeModel.findOne({ name: requestBody.collegeName, isDeleted : false },{ _id: 1 });
         if (college == null) 
         
             return res.status(400).send({ status: false, message: "College not found!" });
