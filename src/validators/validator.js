@@ -21,9 +21,9 @@ const isValidObjectId = function (ObjectId)
     return true;
 };
 
-const isValidTitle = function (title)
+const isValidMobileNo = function (mobile)
 {
-    return ["Mr","Mrs","Miss"].indexOf(title)!=-1;
+    return (/^\d{10}$/.test(val));
 };
 
 const isValidEmail = function(email)
@@ -31,4 +31,4 @@ const isValidEmail = function(email)
     return (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email));
 };
 
-module.exports={isValidField,isValidRequestBody,isValidObjectId,isValidEmail,isValidTitle};
+module.exports={isValidField,isValidRequestBody,isValidObjectId,isValidEmail,isValidMobileNo};
