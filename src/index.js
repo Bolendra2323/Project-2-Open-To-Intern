@@ -18,8 +18,8 @@ app.use(
     function (req,res,next)
     {
         const date = new Date();
-        let currDateAndTime = date.toString();
-        console.log(currDateAndTime,',',req.ip,',',req.method,',',req.path);
+        let currDateAndTime = date.toString().split(' ');
+        console.log(currDateAndTime[2],currDateAndTime[1],currDateAndTime[3],currDateAndTime[4],',',req.ip,',',req.method,',',req.path);
         next();
     }
 );
