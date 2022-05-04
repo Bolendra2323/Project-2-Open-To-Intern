@@ -6,16 +6,17 @@ const createCollege = async function(req,res)
 {
     try
     {
-        if(!validators.isValidRequestBody(req.body))
+        let collegeData = req.body;
+        if(!validators.isValidRequestBody(collegeData))
 
             return res.status(400).send({status : false, message : "Invalid request body. Please provide college details."});
 
-        let {name, fullName, logoLink} = req.body;
+        let {name, fullName, logoLink} = collegeData;
         if(!validators.isValidField(name))
 
             return res.status(400).send({status : false, message : "Name is required."});
 
-        let college = await collegeModel.findOne(name);
+        let college = await collegeModel.findOne({name});
         if(college!=null)
 
             return res.status(400).send({status : false, message : "This name is already in use."});
@@ -32,8 +33,8 @@ const createCollege = async function(req,res)
 
             return res.status(400).send({status : false, message : "Invalid field (isDeleted) in request body."});
         
-        const collegeData = {name,fullName,logoLink};
-        const newCollege = await collegeModel.create(collegeData);
+        collegeData = {name,fullName,logoLink};
+        let newCollege = await collegeModel.create(collegeData);
         res.status(201).send({status : true, data : newCollege});
     }
     catch(err)
