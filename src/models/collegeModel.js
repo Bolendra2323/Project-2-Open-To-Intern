@@ -23,4 +23,5 @@ const collegeSchema = new mongoose.Schema(
     },{timestamps : true}
 );
 
-module.exports = mongoose.model('colleges',collegeSchema);
+module.exports = 
+mongoose.model('colleges',collegeSchema);
