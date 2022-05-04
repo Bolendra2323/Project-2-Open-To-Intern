@@ -1,5 +1,3 @@
-const mongoose = require("mongoose");
-
 const isValidField = function (value) 
 {
     if (typeof value === 'undefined' || value === null) return false;
@@ -14,13 +12,6 @@ const isValidRequestBody = function (requestBody)
    return Object.keys(requestBody).length > 0;
 };
 
-const isValidObjectId = function (ObjectId)
-{
-    if (!mongoose.Types.ObjectId.isValid(ObjectId))return false
-    
-    return true;
-};
-
 const isValidMobileNo = function (mobile)
 {
     return (/^\d{10}$/.test(val));
@@ -31,4 +22,4 @@ const isValidEmail = function(email)
     return (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email));
 };
 
-module.exports={isValidField,isValidRequestBody,isValidObjectId,isValidEmail,isValidMobileNo};
+module.exports={isValidField,isValidRequestBody,isValidEmail,isValidMobileNo};
