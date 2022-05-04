@@ -14,7 +14,7 @@ const isValidRequestBody = function (requestBody)
 
 const isValidMobileNo = function (mobile)
 {
-    return (/^\d{10}$/.test(val));
+    return (/^\d{10}$/.test(mobile));
 };
 
 const isValidEmail = function(email)
