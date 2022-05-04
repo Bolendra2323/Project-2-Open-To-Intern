@@ -4,5 +4,5 @@ const internController = require('../controllers/internController');
 const router = express.Router();
 
 router.post('/functionup/colleges',collegeController.createCollege);
-router.post('/functionup/interns');
+router.post('/functionup/interns',internController.createIntern);
 router.get('/functionup/collegeDetails',collegeController.listInterns);
