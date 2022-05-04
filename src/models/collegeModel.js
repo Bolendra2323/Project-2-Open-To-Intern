@@ -12,6 +12,7 @@ const collegeSchema = new mongoose.Schema(
                         required : true
                     }, 
         logoLink :  {
+                        type : String,
                         required : true,
                         unique : true
                     }, 
