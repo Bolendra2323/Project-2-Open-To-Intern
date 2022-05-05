@@ -37,7 +37,7 @@ const createCollege = async function(req,res)
             return res.status(400).send({status : false, message : "Invalid field (isDeleted) in request body."});
         
         let newCollege = await collegeModel.create(collegeData);
-        let { name, fullName, logoLink, isDeleted } = newCollege;
+        let { name, fullName, logoLink } = newCollege;
         res.status(201).send( {status : true, data :  { name, fullName, logoLink, isDeleted } } );
     }
     catch(err)
@@ -59,7 +59,7 @@ const listInterns = async function (req,res)
 
             return res.status(404).send({status : false, message : "College not found!"});
         
-        const interns = await internModel.find({ collegeId : college._id, isDeleted : false },{ __v : 0, isDeleted : 0, createdAt : 0, updatedAt : 0 });
+        const interns = await internModel.find({ collegeId : college._id, isDeleted : false },{ __v : 0, isDeleted : 0, collegeId : 0 });
         if(interns.length === 0)
 
             return res.status(404).send({status : true, message : "No interns found."});
