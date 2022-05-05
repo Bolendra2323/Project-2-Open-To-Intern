@@ -2,7 +2,6 @@ const collegeModel = require('../models/collegeModel');
 const internModel = require("../models/internModel");
 const validators = require('../validators/validator');
 
-
 const createIntern = async function(req, res) 
 {
     try 
@@ -64,4 +63,5 @@ const createIntern = async function(req, res)
         res.status(500).send({ status: false, data: createIntern, message: err.message });
     }
 };
+
 module.exports.createIntern = createIntern
