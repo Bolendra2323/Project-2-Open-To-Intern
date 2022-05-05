@@ -59,7 +59,7 @@ const listInterns = async function (req,res)
 
             return res.status(404).send({status : false, message : "College not found!"});
         
-        const interns = await internModel.find({ collegeId : college._id, isDeleted : false },{ __v : 0, isDeleted : 0 });
+        const interns = await internModel.find({ collegeId : college._id, isDeleted : false },{ __v : 0, isDeleted : 0, createdAt : 0, updatedAt : 0 });
         if(interns.length === 0)
 
             return res.status(404).send({status : true, message : "No interns found."});
