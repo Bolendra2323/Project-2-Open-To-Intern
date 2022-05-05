@@ -7,7 +7,7 @@ const createCollege = async function(req,res)
     try
     {
         let collegeData = req.body;
-        if(!validators.isValidRequestBody(collegeData))
+        if(!validators.isValidRequestBody(req.body))
 
             return res.status(400).send({status : false, message : "Invalid request body. Please provide college details."});
 
