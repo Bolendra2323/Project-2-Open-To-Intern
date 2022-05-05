@@ -29,7 +29,7 @@ const createIntern = async function(req, res)
 
             return res.status(400).send({ status: false, message: "Please enter a valid mobile number." });
         
-        let mobileExists=await collegeModel.findOne({mobile : requestBody.mobile});
+        let mobileExists=await internModel.findOne({mobile : requestBody.mobile});
         if(mobileExists)
     
             return res.status(400).send({status : false, message : "Mobile number has already been registered."});
@@ -42,7 +42,9 @@ const createIntern = async function(req, res)
         
             return res.status(400).send({ status: false, message: "Enter Valid email Id." });
         
-        let emailExists=await collegeModel.findOne({mobile : requestBody.mobile,email : requestBody.email});
+        let emailExists=await internModel.findOne({email : requestBody.email});
+        console.log(emailExists)
+
         if(emailExists)
 
             return res.status(400).send({status : false, message : "Email id has already been registered."});
