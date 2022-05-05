@@ -51,17 +51,21 @@ const listInterns = async function (req,res)
     
             return res.status(400).send({status : false, message : "Invalid request parameter. Please provide collegeName."});
 
-        const college = await collegeModel.findOne({name : req.query.collegeName,isDeleted : false},{_id : 1});
+        let college = await collegeModel.findOne({name : req.query.collegeName,isDeleted : false},{name : 1,fullName : 1,logoLink : 1});
         if(college==null)
 
             return res.status(404).send({status : false, message : "College not found!"});
-
+        
         const interns = await internModel.find({collegeId : college._id,isDeleted : false});
         if(interns.length==0)
 
             return res.status(404).send({status : true, message : "No interns found."});
 
-        res.status(200).send({status : true, count : interns.length , data : interns});
+        // let result = college;
+        // result['interests']=interns;
+        // delete result._id;
+        // console.log(result)
+        res.status(200).send({status : true, count : interns.length , data : {name : college.name,fullName : college.fullName,logoLink : college.logoLink,interests : interns}});
     }
     catch(err)
     {
