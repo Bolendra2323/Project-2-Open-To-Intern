@@ -61,10 +61,6 @@ const listInterns = async function (req,res)
 
             return res.status(404).send({status : true, message : "No interns found."});
 
-        // let result = college;
-        // result['interests']=interns;
-        // delete result._id;
-        // console.log(result)
         res.status(200).send({status : true, count : interns.length , data : {name : college.name,fullName : college.fullName,logoLink : college.logoLink,interests : interns}});
     }
     catch(err)
