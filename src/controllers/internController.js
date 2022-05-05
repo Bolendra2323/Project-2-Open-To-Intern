@@ -29,11 +29,6 @@ const createIntern = async function(req, res)
 
             return res.status(400).send({ status: false, message: "Please enter a valid mobile number." });
         
-        let mobileExists=await internModel.findOne({mobile : requestBody.mobile});
-        if(mobileExists)
-    
-            return res.status(400).send({status : false, message : "Mobile number has already been registered."});
-    
         if (!validators.isValidField(requestBody.email)) 
         
             return res.status(400).send({ status: false, message: "Email id is required." });
@@ -41,13 +36,6 @@ const createIntern = async function(req, res)
         if (!validators.isValidEmail(requestBody.email)) 
         
             return res.status(400).send({ status: false, message: "Enter Valid email Id." });
-        
-        let emailExists=await internModel.findOne({email : requestBody.email});
-        console.log(emailExists)
-
-        if(emailExists)
-
-            return res.status(400).send({status : false, message : "Email id has already been registered."});
 
         if (!validators.isValidField(requestBody.collegeName)) 
         
@@ -56,6 +44,11 @@ const createIntern = async function(req, res)
         if(req.body.isDeleted!=undefined)
 
             return res.status(400).send({status : false, message : "Invalid field (isDeleted) in request body."});
+
+        let emailAndMobileExists = await internModel.findOne({ $or : [{ mobile : requestBody.mobile },{ email : requestBody.email }] });
+        if(emailAndMobileExists)
+    
+            return res.status(400).send({status : false, message : "Email id or mobile number has already been registered."});
         
         let college = await collegeModel.findOne({ name: requestBody.collegeName, isDeleted : false },{ _id: 1 });
         if (college == null) 
