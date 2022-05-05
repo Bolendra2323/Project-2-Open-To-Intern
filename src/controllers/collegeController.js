@@ -38,7 +38,7 @@ const createCollege = async function(req,res)
         
         let newCollege = await collegeModel.create(collegeData);
         let { name, fullName, logoLink } = newCollege;
-        res.status(201).send( {status : true, data :  { name, fullName, logoLink, isDeleted } } );
+        res.status(201).send( {status : true, data :  { name, fullName, logoLink } } );
     }
     catch(err)
     {
