@@ -38,7 +38,7 @@ const createIntern = async function(req, res)
             return res.status(400).send({ status: false, message: "Enter Valid email Id." });
         
         let mob_email=await collegeModel.findOne({mobile : requestBody.mobile,email : requestBody.email});
-        if(mob_email!=null)
+        if(mob_email==null)
 
             return res.status(400).send({status : false, message : "Mobile number and email id have already been registered."});
 
