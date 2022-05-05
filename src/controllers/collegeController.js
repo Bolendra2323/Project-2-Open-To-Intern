@@ -28,6 +28,10 @@ const createCollege = async function(req,res)
 
             return res.status(400).send({status : false, message : "Logo Link is required."});
 
+        if(!validators.isValidURL(collegeData.logoLink))
+
+            return res.status(400).send({status : false, message : "Logo Link is invalid."});
+        
         if(collegeData.isDeleted!=undefined)
 
             return res.status(400).send({status : false, message : "Invalid field (isDeleted) in request body."});
