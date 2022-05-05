@@ -34,7 +34,7 @@ const createCollege = async function(req,res)
         
         let newCollege = await collegeModel.create(collegeData);
         let { name, fullName, logoLink, isDeleted } = newCollege;
-        res.status(201).send( { name, fullName, logoLink, isDeleted } );
+        res.status(201).send( {status : true, data :  { name, fullName, logoLink, isDeleted } } );
     }
     catch(err)
     {
@@ -60,7 +60,7 @@ const listInterns = async function (req,res)
 
             return res.status(404).send({status : true, message : "No interns found."});
 
-        res.status(200).send({data : { name : college.name, fullName : college.fullName, logoLink : college.logoLink, interests : interns } });
+        res.status(200).send({status : true, data : { name : college.name, fullName : college.fullName, logoLink : college.logoLink, interests : interns } });
     }
     catch(err)
     {
