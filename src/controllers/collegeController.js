@@ -61,7 +61,7 @@ const listInterns = async function (req,res)
 
             return res.status(404).send({status : true, message : "No interns found."});
 
-        res.status(200).send({status : true, data : interns});
+        res.status(200).send({status : true, count : interns.length , data : interns});
     }
     catch(err)
     {
