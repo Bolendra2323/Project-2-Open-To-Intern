@@ -1,5 +1,57 @@
 # Project2-OpenToIntern Group 11
 
+
+Discussion---> 
+
+Project Overview → In this project we were required to implement the backend part of  an
+
+Open to Intern Project
+
+Problem Statements → It consist of total  Models (College-Model & Intern-Model)
+
+College-Model→ It consist of 2 API’s (1-Post , 1-Get)
+
+Intern-Model → It consist of 1 API(1-Post)
+
+
+Used Appropriate Status code 
+
+Approach —>
+
+● Before starting the project we downloaded different dependencies.
+
+● Dependencies like —>
+
+○ Express→ (This will help us in creating different api endpoints),
+
+○ Mongoose→ (This will help us to work with mongodb easily)
+
+○ Nodemon→ (This will help us in restarting the node application whenever
+
+some changes(even the minute change) in the files are noticed in the
+
+directory)
+
+
+● Then we created SRC folder where all other sub folders are stored in a
+
+hierarchical manner.We have created Sub folders like Models, routes, Validators.
+
+Controller.
+
+● Initiated the project by creating Schemas for college & intern. then with the
+
+further continuation we have stored end points in route files. Basically route file is
+
+created for storing all the end points .
+
+
+● In controller folder ,we have created files for college and intern, where it has
+
+their respective API’s.
+
+********************************************************************************************************************************************************
+
 Team Members - Abi Mangalan and Bolendra Moran.
 
 -------Project requirements from FunctionUp repo------
