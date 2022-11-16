@@ -7,7 +7,7 @@ Project Overview → In this project we were required to implement the backend p
 
 Open to Intern Project
 
-Problem Statements → It consist of total  Models (College-Model & Intern-Model)
+Problem Statements → It consist of total two Models (College-Model & Intern-Model)
 
 College-Model→ It consist of 2 API’s (1-Post , 1-Get)
 
